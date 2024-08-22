@@ -63,7 +63,7 @@ btnHold.addEventListener('click', () => {
     tScore.textContent = scores[activePlayer];
 
     //check if the player's score is >= 100 if true finish the game
-    if (scores[activePlayer] >= 100) {
+    if (scores[activePlayer] >= 10) {
       playing = false;
       document
         .querySelector(`.player--${activePlayer}`)
@@ -71,6 +71,7 @@ btnHold.addEventListener('click', () => {
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add('player--active');
+      dice.classList.add('hidden');
     } else {
       switchPlayer();
     }
