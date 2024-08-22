@@ -63,7 +63,7 @@ btnHold.addEventListener('click', () => {
     tScore.textContent = scores[activePlayer];
 
     //check if the player's score is >= 100 if true finish the game
-    if (scores[activePlayer] >= 10) {
+    if (scores[activePlayer] >= 100) {
       playing = false;
       document
         .querySelector(`.player--${activePlayer}`)
@@ -78,3 +78,29 @@ btnHold.addEventListener('click', () => {
   }
   //switch player
 });
+
+const resetGame = () => {
+  document.getElementById(`current--${activePlayer}`).textContent = 0;
+  activePlayer = activePlayer = 0;
+  currentScore = 0;
+
+  if (activePlayer === 0) {
+    player0.classList.remove('player--winner');
+    player1.classList.remove('player--winner');
+    player1.classList.remove(`player--active`);
+    player0.classList.add(`player--active`);
+  } else {
+    player0.classList.remove('player--winner');
+    player1.classList.remove('player--winner');
+    player1.classList.remove(`player--active`);
+    player0.classList.add(`player--active`);
+  }
+  tScoreP1.textContent = 0;
+  tScoreP2.textContent = 0;
+  cScorep1.textContent = 0;
+  cScorep2.textContent = 0;
+  dice.classList.add('hidden');
+  playing = true;
+};
+
+btnNew.addEventListener('click', resetGame);
